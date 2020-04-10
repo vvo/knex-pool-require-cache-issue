@@ -56,6 +56,39 @@ not ok, check the terminal of your Node.js server
 not ok, check the terminal of your Node.js server
 ```
 
+**Terminal server output**:
+
+```text
+error: sorry, too many clients already
+    at Connection.parseE (/Users/vvo/Dev/knex-pool-require-cache-issue/node_modules/pg/lib/connection.js:600:48)
+    at Connection.parseMessage (/Users/vvo/Dev/knex-pool-require-cache-issue/node_modules/pg/lib/connection.js:399:19)
+    at Socket.<anonymous> (/Users/vvo/Dev/knex-pool-require-cache-issue/node_modules/pg/lib/connection.js:115:22)
+    at Socket.emit (events.js:310:20)
+    at addChunk (_stream_readable.js:286:12)
+    at readableAddChunk (_stream_readable.js:268:9)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23) {
+  name: 'error',
+  length: 85,
+  severity: 'FATAL',
+  code: '53300',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'proc.c',
+  line: '361',
+  routine: 'InitProcess'
+}
+```
+
 ## Using node-postgres pooling
 
 (remember to stop the previous server)
