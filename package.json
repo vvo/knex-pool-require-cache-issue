@@ -1,0 +1,14 @@
+{
+  "name": "knex-pool-require-cache-issue",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "knex-server": "DATABASE_URL=postgresql://example:example@localhost:64320/example node test-knex",
+    "pg-server": "DATABASE_URL=postgresql://example:example@localhost:64320/example node test-pg",
+    "test": "for i in `seq 1 20`; do curl http://localhost:3000; done"
+  },
+  "dependencies": {
+    "knex": "0.20.13",
+    "pg": "8.0.2"
+  }
+}
