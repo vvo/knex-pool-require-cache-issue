@@ -1,5 +1,9 @@
 # knex-pool-require-cache-issue
 
+**Update April 23, 2020** I managed to fix this issue with the help of the community. If you're having issues using knex and Next.js in development (or any other dev server) then have a look at the file [lib/db-knex-fixed.js](./lib/db-knex-fixed.js).
+
+---
+
 This example demonstrate an issue you can face when using [knex](https://knexjs.org/) pooling (that's the default) together with a system that wipes out require.cache, like [Next.js](https://nextjs.org/) does to provide server-side hot reloading.
 
 It also shows that the pooling system from [node-postgres](https://github.com/brianc/node-postgres/) is resilient to the issue.
@@ -95,6 +99,26 @@ error: sorry, too many clients already
 
 ```bash
 npm run pg-server
+
+# in another terminal
+npm run test
+```
+
+**Result**:
+
+```text
+> npm test
+
+> knex-pool-require-cache-issue@1.0.0 test /Users/vvo/Dev/knex-pool-require-cache-issue
+> for i in `seq 1 20`; do curl http://localhost:3000; done
+
+okayokayokayokayokayokayokayokayokayokayokayokayokayokayokayokayokayokayokayokay
+```
+
+## Using knex with global object
+
+```bash
+npm run knex-server-fixed
 
 # in another terminal
 npm run test
